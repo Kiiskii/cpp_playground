@@ -18,4 +18,6 @@ private:
 	std::string truncString(std::string str) const;	// function to truncate string
 };
 
+void safeGetLine(std::string &input);
+
 #endif

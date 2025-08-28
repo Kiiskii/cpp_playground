@@ -6,7 +6,7 @@ HDRS_DIR = inc/
 HDRS = -I$(HDRS_DIR)
 
 NAME = phonebook
-SRCS = srcs/main.cpp srcs/PhoneBook.cpp srcs/Contact.cpp
+SRCS = srcs/main.cpp srcs/PhoneBook.cpp srcs/Contact.cpp srcs/utils.cpp
 OBJS = $(patsubst %.cpp, $(OBJS_DIR)/%.o, $(SRCS))
 
 GREEN = \033[32m

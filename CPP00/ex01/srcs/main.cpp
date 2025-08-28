@@ -10,19 +10,19 @@ int main(void) {
 		std::cout << std::endl;
 		std::cout << "You can ADD, SEARCH or EXIT" << std::endl;
 		std::cout << "Enter a command: ";
-		std::getline(std::cin, command);
+		safeGetLine(command);
 		std::cout << std::endl;
 
-		if (command == "add") {
+		if (command == "ADD") {
 			book.addContact(id);
 			if (id == 7)
 				id = 0;
 			else
 				id++;
 		}
-		else if (command == "search")
+		else if (command == "SEARCH")
 			book.displayAll();
-		else if (command == "exit") {
+		else if (command == "EXIT") {
 			std::cout << std::endl;
 			std::cout << "You have closed the Phonebook... Goodbye!" << std::endl;
 			break ;

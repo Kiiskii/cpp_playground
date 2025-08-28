@@ -8,19 +8,25 @@ void PhoneBook::addContact(int id) {
 	std::string input;
 
 	std::cout << "First name: ";
-	getline(std::cin, input);
+	safeGetLine(input);
 	_contacts[id].setFirstName(input);
 
 	std::cout << "Last name: ";
-	getline(std::cin, input);
+	safeGetLine(input);
 	_contacts[id].setLastName(input);
 
 	std::cout << "Phone number: ";
-	getline(std::cin, input);
+	safeGetLine(input);
 	_contacts[id].setPhoneNumber(input);
 
 	if (_count != 8)
 		_count++;
+}
+
+std::string PhoneBook::truncString(std::string str) const {
+	if (str.length() > 10)
+		return str.substr(0, 9) + ".";
+	return str;
 }
 
 void PhoneBook::displayContacts() const {
@@ -51,10 +57,14 @@ void PhoneBook::searchContact() const {
 
 	while (true) {
 		std::cout << "Insert index between (0 - " << _count - 1 << "): ";
-		std::getline(std::cin, input);
+		safeGetLine(input);
 
 		try {
 			idx = std::stoi(input);
+		}
+		catch (std::invalid_argument) {
+			std::cout << "invalid index" << std::endl;
+			continue ;
 		}
 		catch (std::out_of_range) {
 			std::cout << "invalid index" << std::endl;
@@ -79,10 +89,4 @@ void PhoneBook::searchContact() const {
 void PhoneBook::displayAll() const {
 	displayContacts();
 	searchContact();
-}
-
-std::string PhoneBook::truncString(std::string str) const {
-	if (str.length() > 10)
-		return str.substr(0, 9) + ".";
-	return str;
 }
