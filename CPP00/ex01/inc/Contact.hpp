@@ -13,11 +13,15 @@ public:
 	void setFirstName(const std::string &firstname);
 	void setLastName(const std::string &lastname);
 	void setPhoneNumber(const std::string &phonenumber);
+	void setNickname(const std::string &nickname);
+	void setSecret(const std::string &secret);
 
 	// getters: read values from objects
 	std::string getFirstName() const;
 	std::string getLastName() const;
 	std::string getPhoneNumber() const;
+	std::string getNickname() const;
+	std::string getSecret() const;
 
 	// helper functions
 	void displayContacts() const;
@@ -27,6 +31,8 @@ private:
 	std::string _firstName;
 	std::string _lastName;
 	std::string _phoneNumber;
+	std::string _nickname;
+	std::string _secret;
 };
 
 #endif

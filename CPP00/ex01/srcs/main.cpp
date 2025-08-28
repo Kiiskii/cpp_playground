@@ -11,6 +11,7 @@ int main(void) {
 		std::cout << "You can ADD, SEARCH or EXIT" << std::endl;
 		std::cout << "Enter a command: ";
 		safeGetLine(command);
+		command = trim(command);
 		std::cout << std::endl;
 
 		if (command == "ADD") {
@@ -20,8 +21,9 @@ int main(void) {
 			else
 				id++;
 		}
-		else if (command == "SEARCH")
+		else if (command == "SEARCH") {
 			book.displayAll();
+		}
 		else if (command == "EXIT") {
 			std::cout << std::endl;
 			std::cout << "You have closed the Phonebook... Goodbye!" << std::endl;

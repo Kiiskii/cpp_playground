@@ -18,6 +18,7 @@ private:
 	std::string truncString(std::string str) const;	// function to truncate string
 };
 
-void safeGetLine(std::string &input);
+void safeGetLine(std::string &input); // getline helper function for error handling
+std::string trim(std::string &str); // trim whitespace from beginning and end of strings
 
 #endif

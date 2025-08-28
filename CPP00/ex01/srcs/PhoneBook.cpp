@@ -9,15 +9,28 @@ void PhoneBook::addContact(int id) {
 
 	std::cout << "First name: ";
 	safeGetLine(input);
+	input = trim(input);
 	_contacts[id].setFirstName(input);
 
 	std::cout << "Last name: ";
 	safeGetLine(input);
+	input = trim(input);
 	_contacts[id].setLastName(input);
 
 	std::cout << "Phone number: ";
 	safeGetLine(input);
+	input = trim(input);
 	_contacts[id].setPhoneNumber(input);
+
+	std::cout << "Nickname: ";
+	safeGetLine(input);
+	input = trim(input);
+	_contacts[id].setNickname(input);
+
+	std::cout << "What is their deepest secret >:) : ";
+	safeGetLine(input);
+	input = trim(input);
+	_contacts[id].setSecret(input);
 
 	if (_count != 8)
 		_count++;
@@ -56,17 +69,23 @@ void PhoneBook::searchContact() const {
 	int idx;
 
 	while (true) {
+		size_t index;
 		std::cout << "Insert index between (0 - " << _count - 1 << "): ";
 		safeGetLine(input);
+		input = trim(input);
 
 		try {
-			idx = std::stoi(input);
+			idx = std::stoi(input, &index);
 		}
 		catch (std::invalid_argument) {
 			std::cout << "invalid index" << std::endl;
 			continue ;
 		}
 		catch (std::out_of_range) {
+			std::cout << "invalid index" << std::endl;
+			continue ;
+		}
+		if (input.length() != index) {
 			std::cout << "invalid index" << std::endl;
 			continue ;
 		}
@@ -78,6 +97,10 @@ void PhoneBook::searchContact() const {
 			<< std::endl;
 			std::cout << "Phone number: " << _contacts[idx].getPhoneNumber()
 			<< std::endl;
+			std::cout << "Nickname: " << _contacts[idx].getNickname()
+			<< std::endl;
+			std::cout << "Their deepes secret >:D : " << _contacts[idx].getSecret()
+			<< std::endl;
 			break ;
 		}
 		else {
@@ -87,6 +110,10 @@ void PhoneBook::searchContact() const {
 }
 
 void PhoneBook::displayAll() const {
+	if (_count <= 0) {
+		std::cout << "Phonebook is empty, please ADD contacts to it first!" << std::endl;
+		return ;
+	}
 	displayContacts();
 	searchContact();
 }
