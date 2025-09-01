@@ -23,9 +23,6 @@ public:
 	std::string getNickname() const;
 	std::string getSecret() const;
 
-	// helper functions
-	void displayContacts() const;
-
 private:
 	// private member variables: only accessible from inside the class
 	std::string _firstName;
