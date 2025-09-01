@@ -52,14 +52,12 @@ void PhoneBook::displayContacts() const {
 	for (int j = 0; j < 4; ++j)
 		std::cout << "-------------";
 	std::cout << std::endl;
-	for (int i = 0; i < _count; i++) {
-		if (_contacts[i].getFirstName() != "_default") {
-			std::cout	<< std::setw(10) << i << " | "
-						<< std::setw(10) << truncString(_contacts[i].getFirstName()) << " | "
-						<< std::setw(10) << truncString(_contacts[i].getLastName()) << " | "
-						<< std::setw(10) << truncString(_contacts[i].getPhoneNumber()) << " | "
-						<< std::endl;
-		}
+	for (int i = 1; i <= _count; i++) {
+		std::cout	<< std::setw(10) << i << " | "
+					<< std::setw(10) << truncString(_contacts[i - 1].getFirstName()) << " | "
+					<< std::setw(10) << truncString(_contacts[i - 1].getLastName()) << " | "
+					<< std::setw(10) << truncString(_contacts[i - 1].getPhoneNumber()) << " | "
+					<< std::endl;
 	}
 	std::cout << std::endl;
 }
@@ -70,7 +68,7 @@ void PhoneBook::searchContact() const {
 
 	while (true) {
 		size_t index;
-		std::cout << "Insert index between (0 - " << _count - 1 << "): ";
+		std::cout << "Insert index between (1 - " << _count << "): ";
 		safeGetLine(input);
 		input = trim(input);
 
@@ -89,6 +87,7 @@ void PhoneBook::searchContact() const {
 			std::cout << "invalid index" << std::endl;
 			continue ;
 		}
+		idx -= 1;
 
 		if (idx >= 0 && idx < _count) {
 			std::cout << "First name: " << _contacts[idx].getFirstName()
