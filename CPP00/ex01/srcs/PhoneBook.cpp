@@ -75,12 +75,8 @@ void PhoneBook::searchContact() const {
 		try {
 			idx = std::stoi(input, &index);
 		}
-		catch (std::invalid_argument) {
-			std::cout << "invalid index" << std::endl;
-			continue ;
-		}
-		catch (std::out_of_range) {
-			std::cout << "invalid index" << std::endl;
+		catch (std::exception& e) {
+			std::cout << "invalid index: " << e.what() << std::endl;
 			continue ;
 		}
 		if (input.length() != index) {
