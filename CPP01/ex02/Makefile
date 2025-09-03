@@ -5,9 +5,9 @@ OBJS_DIR = obj
 HDRS_DIR = inc/
 HDRS = -I$(HDRS_DIR)
 
-NAME = Zombie
-SRCS = srcs/main.cpp srcs/Zombie.cpp srcs/zombieHorde.cpp
-OBJS = $(patsubst srcs/%.cpp, $(OBJS_DIR)/%.o, $(SRCS))
+NAME = Brain
+SRCS = main.cpp
+OBJS = $(patsubst %.cpp, $(OBJS_DIR)/%.o, $(SRCS))
 
 GREEN = \033[32m
 RESET = \033[0m
@@ -19,7 +19,7 @@ $(NAME): $(OBJS)
 	$(CXX) $(FLAGS) $(OBJS) $(HRDS) -o $(NAME)
 	@echo "$(GREEN)COMPILATION COMPLETE!$(RESET)"
 
-$(OBJS_DIR)/%.o: srcs/%.cpp
+$(OBJS_DIR)/%.o: %.cpp
 	@mkdir -p $(dir $@)
 	$(CXX) $(FLAGS) $(HRDS) -c $< -o $@
 
