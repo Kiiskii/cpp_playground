@@ -4,7 +4,7 @@ Weapon::Weapon() {
 	_type = "None";
 }
 
-Weapon::Weapon(std::string type) {
+Weapon::Weapon(const std::string& type) {
 	_type = type;
 }
 

@@ -17,14 +17,11 @@ int main(void) {
 		Weapon club = Weapon("crude spiked club");
 
 		HumanB jim("Jim");
+		jim.attack();
 		jim.setWeapon(club);
 		jim.attack();
 		club.setType("some other type of club");
 		jim.attack();
-	}
-	{
-		HumanB tim("Tim");
-		tim.attack();
 	}
 	std::cout << "------------------------------------" << std::endl;
 	std::cout << "End of tests" << std::endl;
