@@ -16,12 +16,12 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "$(GREEN)Compiling executable...$(RESET)"
-	$(CXX) $(FLAGS) $(OBJS) $(HRDS) -o $(NAME)
+	$(CXX) $(FLAGS) $(OBJS) $(HDRS) -o $(NAME)
 	@echo "$(GREEN)COMPILATION COMPLETE!$(RESET)"
 
 $(OBJS_DIR)/%.o: srcs/%.cpp
 	@mkdir -p $(dir $@)
-	$(CXX) $(FLAGS) $(HRDS) -c $< -o $@
+	$(CXX) $(FLAGS) $(HDRS) -c $< -o $@
 
 clean:
 	@echo "$(GREEN)Cleaning object files$(RESET)"

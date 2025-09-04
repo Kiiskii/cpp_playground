@@ -5,8 +5,8 @@ OBJS_DIR = obj
 HDRS_DIR = inc/
 HDRS = -I$(HDRS_DIR)
 
-NAME = Zombie
-SRCS = srcs/main.cpp srcs/Zombie.cpp srcs/zombieHorde.cpp
+NAME = UnnecessaryViolence
+SRCS = srcs/main.cpp srcs/Weapon.cpp srcs/HumanA.cpp srcs/HumanB.cpp
 OBJS = $(patsubst srcs/%.cpp, $(OBJS_DIR)/%.o, $(SRCS))
 
 GREEN = \033[32m
