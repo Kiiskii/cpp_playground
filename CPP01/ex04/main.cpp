@@ -48,7 +48,7 @@ int main(int ac, char** av) {
 	std::string search = av[2];
 	std::string replace = av[3];
 	if (search.empty()) {
-		std::cerr << "error: search string cannot be an empty" << std::endl;
+		std::cerr << "error: search string cannot be empty" << std::endl;
 		return 1;
 	}
 	if (!replace_strings(filename, search, replace))
