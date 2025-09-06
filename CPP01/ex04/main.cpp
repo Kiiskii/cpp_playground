@@ -2,7 +2,7 @@
 #include <fstream>
 #include <iostream>
 
-std::string search_and_replace(std::string line, std::string search, std::string replace) {
+std::string search_and_replace(const std::string& line, const std::string& search, const std::string& replace) {
 	std::string result;
 	size_t pos = 0;
 	size_t found;
@@ -16,7 +16,7 @@ std::string search_and_replace(std::string line, std::string search, std::string
 	return result;
 }
 
-bool replace_strings(std::string filename, std::string search, std::string replace) {
+bool replace_strings(const std::string& filename, const std::string& search, const std::string& replace) {
 	std::ifstream in(filename);
 	if (!in) {
 		std::cerr << "error: could not open " << filename << std::endl;
