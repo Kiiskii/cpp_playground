@@ -4,7 +4,7 @@ Zombie* zombieHorde(int N, std::string name) {
 	try {
 		Zombie* horde = new Zombie[N];
 		for (int i = 0; i < N; ++i)
-			horde[i].setName(name);
+			horde[i].setName(name + " " + std::to_string(i + 1));
 		return horde;
 	}
 	catch (const std::bad_alloc& e) {

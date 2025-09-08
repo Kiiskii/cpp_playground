@@ -2,7 +2,7 @@
 #include "../inc/HumanA.hpp"
 #include "../inc/HumanB.hpp"
 
-int main(void) {
+int main() {
 	std::cout << "Tests:" << std::endl;
 	std::cout << "------------------------------------" << std::endl;
 	{

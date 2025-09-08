@@ -7,15 +7,13 @@ int main(void) {
 	Zombie pekka("pekka");
 	pekka.announce();
 
-	randomChump("ville");
-
 	Zombie* blob = newZombie("blob");
 	if (!blob)
 		return 1;
 	blob->announce();
+
+	randomChump("ville");
 	delete blob;
 
-	std::cout << "-------------------------------------" << std::endl;
-	std::cout << "End tests." << std::endl;
 	return 0;
 }
