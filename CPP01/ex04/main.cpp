@@ -53,4 +53,5 @@ int main(int ac, char** av) {
 	}
 	if (!replace_strings(filename, search, replace))
 		return 1;
+	return 0;
 }
