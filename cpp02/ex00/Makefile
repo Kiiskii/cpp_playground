@@ -1,11 +1,11 @@
 CXX = c++
-FLAGS = -Wall -Wextra -Werror -std=c++20
+FLAGS = -Wall -Wextra -Werror -std=c++20 -Iinc
 
 OBJS_DIR = obj
 HDRS_DIR = inc/
-HDRS = -I$(HDRS_DIR)
+HDRS = -Iinclude$(HDRS_DIR)
 
-NAME = 
+NAME = fixedNumbers
 SRCS = srcs/main.cpp srcs/Fixed.cpp
 OBJS = $(patsubst srcs/%.cpp, $(OBJS_DIR)/%.o, $(SRCS))
 
@@ -21,7 +21,7 @@ $(NAME): $(OBJS)
 
 $(OBJS_DIR)/%.o: srcs/%.cpp
 	@mkdir -p $(dir $@)
-	$(CXX) $(FLAGS) $(HDRS) -c $< -o $@
+	$(CXX) $(FLAGS) $(HDRS) -MMD -MP -c $< -o $@
 
 clean:
 	@echo "$(GREEN)Cleaning object files$(RESET)"
@@ -32,5 +32,9 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+-include $(OBJS:.o=.d)
+
+.SECONDARY: $(OBJS)
 
 .PHONY: all clean fclean re
