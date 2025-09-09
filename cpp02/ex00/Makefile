@@ -1,9 +1,9 @@
 CXX = c++
-FLAGS = -Wall -Wextra -Werror -std=c++20 -Iinc
+FLAGS = -Wall -Wextra -Werror -std=c++20
 
 OBJS_DIR = obj
 HDRS_DIR = inc/
-HDRS = -Iinclude$(HDRS_DIR)
+HDRS = -I$(HDRS_DIR)
 
 NAME = fixedNumbers
 SRCS = srcs/main.cpp srcs/Fixed.cpp
