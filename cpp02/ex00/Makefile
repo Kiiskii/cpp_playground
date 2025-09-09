@@ -16,7 +16,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "$(GREEN)Compiling executable...$(RESET)"
-	$(CXX) $(FLAGS) $(OBJS) $(HDRS) -o $(NAME)
+	$(CXX) $(FLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)COMPILATION COMPLETE!$(RESET)"
 
 $(OBJS_DIR)/%.o: srcs/%.cpp
