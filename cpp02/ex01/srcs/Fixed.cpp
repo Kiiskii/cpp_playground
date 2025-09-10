@@ -17,7 +17,7 @@ Fixed::Fixed(const int n) {
 Fixed::Fixed(const float f) {
 	std::cout << "Float constructor called." << std::endl;
 	long long int tmp = static_cast<long long int>(
-		roundf(static_cast<double>(f) * (1 << _fractionalBits)));
+		roundf(f * (1 << _fractionalBits)));
 	if (tmp > INT32_MAX || tmp < INT32_MIN)
 		_value = (tmp > INT32_MAX) ? INT32_MAX : INT32_MIN;
 	else
@@ -50,7 +50,7 @@ void Fixed::setRawBits(int const raw) {
 }
 
 float Fixed::toFloat() const {
-	return (float)_value / (1 << _fractionalBits);
+	return static_cast<float>(_value) / (1 << _fractionalBits);
 }
 
 int Fixed::toInt() const {
