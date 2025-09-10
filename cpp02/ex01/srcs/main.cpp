@@ -8,6 +8,8 @@ int main() {
 
 	a = Fixed( 1234.4321f );
 
+	std::cout << "-------------------------" << std::endl;
+
 	std::cout << "Regular tests:" << "\n";
 	std::cout << "-------------------------" << std::endl;
 
