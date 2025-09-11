@@ -30,10 +30,10 @@ public:
 	bool operator!=(const Fixed& other) const;
 
 	Fixed& operator++();						// pre-increment (++x)
-	Fixed& operator--();						// pre-increment (--x)
+	Fixed& operator--();						// pre-decrement (--x)
 
 	Fixed operator++(int);						// post-increment (x++)
-	Fixed operator--(int);						// post-increment (x--)
+	Fixed operator--(int);						// post-decrement (x--)
 
 	~Fixed();									// destructor
 	
