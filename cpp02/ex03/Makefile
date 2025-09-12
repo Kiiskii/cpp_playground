@@ -6,7 +6,7 @@ HDRS_DIR = inc/
 HDRS = -I$(HDRS_DIR)
 
 NAME = fixedNumbers
-SRCS = srcs/main.cpp srcs/Fixed.cpp
+SRCS = srcs/main.cpp srcs/Fixed.cpp srcs/Point.cpp srcs/bsp.cpp
 OBJS = $(patsubst srcs/%.cpp, $(OBJS_DIR)/%.o, $(SRCS))
 
 GREEN = \033[32m

@@ -44,6 +44,9 @@ public:
 	int toInt() const;
 
 	static const Fixed& max(const Fixed& a, const Fixed& b);	// return ref to larger value
+	static Fixed& max(Fixed& a, Fixed& b);
+	static const Fixed& min(const Fixed& a, const Fixed& b);	// return ref to larger value
+	static Fixed& min(Fixed& a, Fixed& b);
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed); // overload operator

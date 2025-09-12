@@ -1,51 +1,44 @@
 #include "Fixed.hpp"
 #include <cmath>
 
+// constructors commented out for clearer tests
+
 Fixed::Fixed() : _value(0) {
-	std::cout << "Default constructor called." << std::endl;
+	//std::cout << "Default constructor called." << std::endl;
 }
 
 Fixed::Fixed(const int n) {
-	std::cout << "Int constructor called." << std::endl;
-	long long int tmp = static_cast<long long int>(n) * (1 << _fractionalBits);
-	if (tmp > INT32_MAX || tmp < INT32_MIN)
-		_value = (tmp > INT32_MAX) ? INT32_MAX : INT32_MIN;
-	else
-		_value = static_cast<int>(tmp);
+	//std::cout << "Int constructor called." << std::endl;
+	_value = n << _fractionalBits;
 }
 
 Fixed::Fixed(const float f) {
-	std::cout << "Float constructor called." << std::endl;
-	long long int tmp = static_cast<long long int>(
-		roundf(f * (1 << _fractionalBits)));
-	if (tmp > INT32_MAX || tmp < INT32_MIN)
-		_value = (tmp > INT32_MAX) ? INT32_MAX : INT32_MIN;
-	else
-		_value = static_cast<int>(tmp);
+	//std::cout << "Float constructor called." << std::endl;
+	_value = roundf(f * (1 << _fractionalBits));
 }
 
 Fixed::Fixed(const Fixed& other) : _value(other._value) {
-	std::cout << "Copy constructor called." << std::endl;
+	//std::cout << "Copy constructor called." << std::endl;
 }
 
 Fixed& Fixed::operator=(const Fixed& other) {
-	std::cout << "Copy assignment operator called." << std::endl;
+	//std::cout << "Copy assignment operator called." << std::endl;
 	if (this != &other)
 		_value = other._value;
 	return *this;
 }
 
 Fixed::~Fixed() {
-	std::cout << "Destructor called." << std::endl;
+	//std::cout << "Destructor called." << std::endl;
 }
 
 int Fixed::getRawBits() const {
-	std::cout << "getRawBits member function called." << std::endl;
+	//std::cout << "getRawBits member function called." << std::endl;
 	return _value;
 }
 
 void Fixed::setRawBits(int const raw) {
-	std::cout << "setRawBits member function called." << std::endl;
+	//std::cout << "setRawBits member function called." << std::endl;
 	_value = raw;
 }
 
@@ -134,4 +127,16 @@ Fixed Fixed::operator/(const Fixed& other) const {
 
 const Fixed& Fixed::max(const Fixed& a, const Fixed& b) {
 	return (a._value >= b._value) ? a : b;
+}
+
+Fixed& Fixed::max(Fixed& a, Fixed& b) {
+	return (a._value >= b._value) ? a : b;
+}
+
+const Fixed& Fixed::min(const Fixed& a, const Fixed& b) {
+	return (a._value < b._value) ? a : b;
+}
+
+Fixed& Fixed::min(Fixed& a, Fixed& b) {
+	return (a._value < b._value) ? a : b;
 }
