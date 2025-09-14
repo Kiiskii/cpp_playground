@@ -67,12 +67,12 @@ void ClapTrap::takeDamage(unsigned int amount) {
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-	if (_energy <= 0 && _health > 0) {
+	if (_energy == 0 && _health > 0) {
 		std::cout << "ClapTrap (" << _name << ") doesn't have enough energy to repair itself." << std::endl;
 		return ;
 	}
 	if (_health <= 0) {
-		std::cout << "Dead thing cannot repair themselves." << std::endl;
+		std::cout << "Dead things cannot repair themselves." << std::endl;
 		return ;
 	}
 	_health += amount;
