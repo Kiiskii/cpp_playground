@@ -12,8 +12,8 @@ int main(void) {
 
 	std::cout << "\n----------- TEST ATTACK AND ENERGY -----------\n" << std::endl;
 	for (int i = 0; i < 16; i++) {
-	std::cout << i + 1 << ": ";
-	clap_one.attack("Someone");
+		std::cout << i + 1 << ": ";
+		clap_one.attack("Someone");
 	}
 
 	std::cout << "\n---------------- TEST DAMAGE -----------------\n" << std::endl;
