@@ -37,5 +37,5 @@ void FragTrap::highFivesGuys() {
 	if (_health > 0)
 		std::cout << "requests the highest of fives!" << std::endl;
 	else
-		std::cout << "cannot high five due to it's lack of life." << std::endl;
+		std::cout << "cannot high five due to its lack of life." << std::endl;
 }
