@@ -16,22 +16,13 @@ ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
 	std::cout << "ScavTrap (" << _name << ") constructor called." << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& object) {
-	this->_name = object._name;
-	this->_health = object._health;
-	this->_energy = object._energy;
-	this->_atkDmg = object._atkDmg;
-
+ScavTrap::ScavTrap(const ScavTrap& object) : ClapTrap(object) {
 	std::cout << "ScavTrap (" << _name << ") copy constructor called." << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& object) {
-	if (this != &object) {
-		this->_name = object._name;
-		this->_health = object._health;
-		this->_energy = object._energy;
-		this->_atkDmg = object._atkDmg;
-	}
+	if (this != &object)
+		ClapTrap::operator=(object);
 	std::cout << "ScavTrap (" << _name << ") assignment operator called." << std::endl;
 
 	return *this;
