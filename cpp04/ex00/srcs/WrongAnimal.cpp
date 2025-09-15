@@ -4,7 +4,7 @@ WrongAnimal::WrongAnimal() : _type("WrongAnimal") {
 	std::cout << "WrongAnimal default constructor called." << std::endl;
 }
 
-WrongAnimal::WrongAnimal(std::string type) : _type(type) {
+WrongAnimal::WrongAnimal(const std::string& type) : _type(type) {
 	std::cout << "WrongAnimal constructor called." << std::endl;
 }
 
@@ -13,7 +13,7 @@ WrongAnimal::WrongAnimal(const WrongAnimal& other) : _type(other._type) {
 }
 
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other) {
-	std::cout << "WrongAnimal assingment operator called." << std::endl;
+	std::cout << "WrongAnimal assignment operator called." << std::endl;
 	if (this != &other)
 		_type = other._type;
 	return *this;
