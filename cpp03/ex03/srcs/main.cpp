@@ -1,6 +1,6 @@
 #include "DiamondTrap.hpp"
 
-int main(void) {
+int main() {
 	std::cout << "\n-------------- TEST DIAMONDTRAP -------------\n" << std::endl;
 	DiamondTrap diamond_zero;
 	DiamondTrap diamond_one("diamond_One");
