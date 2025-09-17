@@ -55,7 +55,7 @@ void Dog::setIdea(int i, const std::string& str) {
 		_brain->setIdea(i, str);
 	}
 	else
-		std::cerr << "No memory allocated for to set idea." << std::endl;
+		std::cerr << "No memory allocated for brain to set idea." << std::endl;
 }
 
 const std::string& Dog::getIdea(int i) const {
