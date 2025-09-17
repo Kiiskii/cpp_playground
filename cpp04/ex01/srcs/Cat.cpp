@@ -59,5 +59,9 @@ void Cat::setIdea(int i, const std::string& str) {
 }
 
 const std::string& Cat::getIdea(int i) const {
-	return _brain->getIdea(i);
+	if (_brain)
+		return _brain->getIdea(i);
+	static const std::string empty = "";
+	std::cerr << "No memory allocated to get idea." << std::endl;
+	return empty;
 }
