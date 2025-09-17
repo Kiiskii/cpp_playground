@@ -31,14 +31,14 @@ Brain::~Brain() {
 }
 
 void Brain::setIdea(int i, const std::string& str) {
-	if (i >= 0 && i < 100)
+	if (i >= 0 && i < IDEAS_AMOUNT)
 		_ideas[i] = str;
 	else
 		std::cout << i << " is out of range for brain." << std::endl;
 }
 
 const std::string& Brain::getIdea(int i) const {
-	if (i >= 0 && i < 100)
+	if (i >= 0 && i < IDEAS_AMOUNT)
 		return _ideas[i];
 	else {
 		static const std::string error = "index is out of range.";

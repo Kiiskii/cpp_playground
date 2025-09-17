@@ -50,8 +50,12 @@ void Dog::makeSound() const {
 }
 
 void Dog::setIdea(int i, const std::string& str) {
-	std::cout << "Dog got a new idea!" << std::endl;
-	_brain->setIdea(i, str);
+	if (_brain) {
+		std::cout << "Dog got a new idea!" << std::endl;
+		_brain->setIdea(i, str);
+	}
+	else
+		std::cerr << "No memory allocated to set idea." << std::endl;
 }
 
 const std::string& Dog::getIdea(int i) const {

@@ -50,8 +50,12 @@ void Cat::makeSound() const {
 }
 
 void Cat::setIdea(int i, const std::string& str) {
-	std::cout << "Cat got a new idea!" << std::endl;
-	_brain->setIdea(i, str);
+	if (_brain) {
+		std::cout << "Cat got a new idea!" << std::endl;
+		_brain->setIdea(i, str);
+	}
+	else
+		std::cerr << "No memory allocated for brain to set idea." << std::endl;
 }
 
 const std::string& Cat::getIdea(int i) const {
