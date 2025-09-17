@@ -28,7 +28,6 @@ Cat& Cat::operator=(const Cat& other) {
 		Animal::operator=(other);
 		if (_brain)
 			delete _brain;
-		_brain = new Brain(*other._brain);
 		try {
 			_brain = new Brain(*other._brain);
 		}
