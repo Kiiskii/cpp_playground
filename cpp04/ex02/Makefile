@@ -5,7 +5,7 @@ OBJS_DIR = obj
 HDRS_DIR = inc/
 HDRS = -I$(HDRS_DIR)
 
-NAME = animalBrain
+NAME = abstractAnimal
 SRCS = srcs/main.cpp srcs/AAnimal.cpp srcs/Cat.cpp srcs/Dog.cpp srcs/WrongAnimal.cpp srcs/WrongCat.cpp srcs/Brain.cpp
 OBJS = $(patsubst srcs/%.cpp, $(OBJS_DIR)/%.o, $(SRCS))
 
