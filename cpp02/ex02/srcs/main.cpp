@@ -94,7 +94,7 @@ int main() {
 
 	Fixed divTest(1);
 	Fixed tiny(0.0001f);
-	std::cout << "1 / 0.0001 ≈ " << (divTest / tiny) << std::endl;
+	//std::cout << "1 / 0.0001 ≈ " << (divTest / tiny) << std::endl;
 
 	std::cout << "======================" << std::endl;
 	std::cout << "   End of tests       " << std::endl;
