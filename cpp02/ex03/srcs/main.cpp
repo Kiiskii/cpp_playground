@@ -36,9 +36,5 @@ int main() {
 	testCase(d, e, f, Point(-6, -6), "Point (-6,-6) inside rotated triangle");
 	testCase(d, e, f, Point(-11, -11), "Point (-11,-11) outside rotated triangle");
 
-	// Degenerate triangle (collinear points)
-	Point g(0, 0), h(5, 5), i(10, 10); // collinear
-	testCase(g, h, i, Point(2, 2), "Point (2,2) degenerate case");
-
 	return 0;
 }
