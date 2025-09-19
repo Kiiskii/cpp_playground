@@ -7,7 +7,7 @@ bool bsp(Point const a, Point const b, Point const c, Point const point) {
 	float pca = Point::getTriangleArea(point, c, a);
 
 	if (triangle == (pab + pbc + pca)) {
-		return (pab > 0 && pbc > 0 && pca > 0);
+		return (pab > 0 && pbc > 0 && pca > 0); // will ensure none of the triangles have area of 0
 	}
 	return false;
 }
