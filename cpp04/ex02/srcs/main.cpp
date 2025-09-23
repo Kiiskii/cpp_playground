@@ -5,8 +5,8 @@ int main() {
 	std::cout << "\n-------------- ABSTRACT CLASS TESTS --------------" << std::endl;
 	{
 		// Polymorphism check
-		const Animal* dog = new Dog();
-		const Animal* cat = new Cat();
+		const AAnimal* dog = new Dog();
+		const AAnimal* cat = new Cat();
 
 		std::cout << "dog type: " << dog->getType() << std::endl;
 		std::cout << "cat type: " << cat->getType() << std::endl;
@@ -18,6 +18,6 @@ int main() {
 		delete cat;
 
 		// Uncommenting the next line should give a compiler error
-		// Animal a;  // Error: variable type 'Animal' is an abstract class
+		// AAnimal a;  // Error: variable type 'Animal' is an abstract class
 	}
 }

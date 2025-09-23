@@ -3,7 +3,7 @@
 #include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Dog : public Animal {
+class Dog : public AAnimal {
 private:
 	Brain* _brain;
 public:
