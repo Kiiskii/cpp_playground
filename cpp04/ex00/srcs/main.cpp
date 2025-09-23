@@ -8,8 +8,8 @@ int main() {
 		Animal animal;
 		Dog dog;
 		Cat cat;
-		Animal& animal_cat = cat;
-		Animal& animal_dog(dog);
+		Animal animal_cat = cat;
+		Animal animal_dog(dog);
 
 		std::cout << "\n--------------- TEST makeSound() --------------\n" << std::endl;
 		std::cout << "animal: ";

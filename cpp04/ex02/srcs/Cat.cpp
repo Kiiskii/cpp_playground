@@ -1,6 +1,6 @@
 #include "Cat.hpp"
 
-Cat::Cat() : Animal("Cat") {
+Cat::Cat() : AAnimal("Cat") {
 	//std::cout << "Cat default constructor called." << std::endl;
 	try {
 		_brain = new Brain();
@@ -11,7 +11,7 @@ Cat::Cat() : Animal("Cat") {
 	}
 }
 
-Cat::Cat(const Cat& other) : Animal(other) {
+Cat::Cat(const Cat& other) : AAnimal(other) {
 	//std::cout << "Cat copy constructor called." << std::endl;
 	try {
 		_brain = new Brain(*other._brain);
@@ -25,7 +25,7 @@ Cat::Cat(const Cat& other) : Animal(other) {
 Cat& Cat::operator=(const Cat& other) {
 	//std::cout << "Cat assignment operator called." << std::endl;
 	if (this != &other) {
-		Animal::operator=(other);
+		AAnimal::operator=(other);
 		if (_brain)
 			delete _brain;
 		try {
