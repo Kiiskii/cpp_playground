@@ -40,7 +40,7 @@ void MateriaSource::learnMateria(AMateria* m) {
 			return ;
 		}
 	}
-	std::cout << "No room in inventory for new MateriaSource." << std::endl;
+	std::cout << "No room in inventory for new materia." << std::endl;
 }
 
 AMateria* MateriaSource::createMateria(const std::string& type) {
