@@ -7,6 +7,7 @@
 #define C_RST	"\033[0m\002"
 #define C_G		"\033[0;32m\001"
 #define C_W		"\033[0;37m\001"
+#define C_C		"\033[0;36m\001"
 
 class Bureaucrat {
 private:
