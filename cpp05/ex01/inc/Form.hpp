@@ -14,7 +14,7 @@ public:
 	Form() = delete;
 	Form(const std::string& name, int gradeToSign, int gradeToExec);
 	Form(const Form& other);
-	Form& operator=(const Form& other);
+	Form& operator=(const Form& other) = delete;
 	~Form();
 
 	const std::string& getName() const;

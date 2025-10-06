@@ -17,15 +17,7 @@ Form::Form(const Form& other) :
 	_gradeToSign(other.getSignGrade()), _gradeToExec(other.getExecGrade()) {
 }
 
-Form& Form::operator=(const Form& other) {
-	if (this != &other)
-		_signed = other.getSigned();
-	return *this;
-}
-
-Form::~Form() {
-	std::cout << C_C << "Form " << getName() << " has been shredded." << C_RST << std::endl;
-}
+Form::~Form() {}
 
 const std::string& Form::getName() const {
 	return _name;

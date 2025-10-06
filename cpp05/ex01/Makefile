@@ -5,7 +5,7 @@ OBJS_DIR = obj
 HDRS_DIR = inc/
 HDRS = -I$(HDRS_DIR)
 
-NAME = Bureaucrat
+NAME = Form
 SRCS = srcs/main.cpp srcs/Bureaucrat.cpp srcs/Form.cpp
 OBJS = $(patsubst srcs/%.cpp, $(OBJS_DIR)/%.o, $(SRCS))
 

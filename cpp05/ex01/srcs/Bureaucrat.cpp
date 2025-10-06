@@ -25,9 +25,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
 	return *this;
 }
 
-Bureaucrat::~Bureaucrat() {
-	std::cout << C_C << "Bureaucrat " << getName() << " has left the building." << C_RST << std::endl;
-}
+Bureaucrat::~Bureaucrat() {}
 
 const std::string& Bureaucrat::getName() const {
 	return _name;
