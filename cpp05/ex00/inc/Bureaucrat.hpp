@@ -14,10 +14,10 @@ private:
 	const std::string _name;
 	int _grade;
 public:
-	Bureaucrat();
+	Bureaucrat() = delete;
 	Bureaucrat(const std::string& name, int grade);
 	Bureaucrat(const Bureaucrat& other);
-	Bureaucrat& operator=(const Bureaucrat& other);
+	Bureaucrat& operator=(const Bureaucrat& other) = delete;
 	~Bureaucrat();
 
 	const std::string& getName() const;

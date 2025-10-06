@@ -68,18 +68,6 @@ void test4() {
 	catch (const std::exception& e) {
 		std::cout << C_R << e.what() << C_RST << std::endl;
 	}
-	try {
-		Bureaucrat limo("Limo", 75);
-		Bureaucrat llimo;
-		llimo = limo;
-		std::cout << C_G << llimo << " before." << C_RST <<std::endl;
-		for (int i = 0; i < 69; i++)
-			llimo.decrementGrade();
-		std::cout << C_G << llimo << " after." << C_RST << std::endl;
-	}
-	catch (const std::exception& e) {
-		std::cout << C_R << e.what() << C_RST << std::endl;
-	}
 }
 
 void test5() {
