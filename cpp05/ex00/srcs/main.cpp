@@ -43,6 +43,7 @@ void test3() {
 		std::cout << C_R << e.what() << C_RST << std::endl;
 	}
 	try {
+		Bureaucrat himo("Himo", 75);
 		Bureaucrat hhimo(himo);
 		std::cout << C_G << hhimo << " before." << C_RST <<std::endl;
 		for (int i = 0; i < 66; i++)
@@ -68,6 +69,7 @@ void test4() {
 		std::cout << C_R << e.what() << C_RST << std::endl;
 	}
 	try {
+		Bureaucrat limo("Limo", 75);
 		Bureaucrat llimo;
 		llimo = limo;
 		std::cout << C_G << llimo << " before." << C_RST <<std::endl;
@@ -93,7 +95,6 @@ void test5() {
 	catch (const std::exception& e) {
 		std::cout << C_R << e.what() << C_RST << std::endl;
 	}
-	std::cout << C_G << pimo << " after." << C_RST << std::endl;
 }
 
 void test6() {
@@ -109,7 +110,6 @@ void test6() {
 	catch (const std::exception& e) {
 		std::cout << C_R << e.what() << C_RST << std::endl;
 	}
-	std::cout << C_G << mimo << " after." << C_RST << std::endl;
 }
 
 int main() {
