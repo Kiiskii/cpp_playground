@@ -9,6 +9,8 @@
 #define C_W		"\033[0;37m\001"
 #define C_C		"\033[0;36m\001"
 
+class Form;
+
 class Bureaucrat {
 private:
 	const std::string _name;
@@ -24,6 +26,7 @@ public:
 	int getGrade() const;
 	void incrementGrade();
 	void decrementGrade();
+	void signForm(Form& f);
 
 	class GradeTooHighException : public std::exception {
 	public:
