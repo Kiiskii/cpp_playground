@@ -68,7 +68,7 @@ void test4() {
 }
 
 void test5() {
-	std::cout << C_W << "\nDECREMENT UNTIL CATN SIGN TESTS" << std::endl;
+	std::cout << C_W << "\nDECREMENT UNTIL CAN'T SIGN TESTS" << std::endl;
 	std::cout << "===============================" << C_RST << std::endl;
 	try {
 		Bureaucrat bimo("Bimo", 84);
