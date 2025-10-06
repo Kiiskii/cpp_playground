@@ -32,8 +32,8 @@ void test2() {
 void test3() {
 	std::cout << C_W << "\nINCREMENT TEST" << std::endl;
 	std::cout << "===============================" << C_RST << std::endl;
-	Bureaucrat himo("Himo", 75);
 	try {
+		Bureaucrat himo("Himo", 75);
 		std::cout << C_G << himo << " before." << C_RST <<std::endl;
 		for (int i = 0; i < 8; i++)
 			himo.incrementGrade();
@@ -42,8 +42,8 @@ void test3() {
 	catch (const std::exception& e) {
 		std::cout << C_R << e.what() << C_RST << std::endl;
 	}
-	Bureaucrat hhimo(himo);
 	try {
+		Bureaucrat hhimo(himo);
 		std::cout << C_G << hhimo << " before." << C_RST <<std::endl;
 		for (int i = 0; i < 66; i++)
 			hhimo.incrementGrade();
@@ -57,8 +57,8 @@ void test3() {
 void test4() {
 	std::cout << C_W << "\nDECREMENT TEST" << std::endl;
 	std::cout << "===============================" << C_RST << std::endl;
-	Bureaucrat limo("Limo", 75);
 	try {
+		Bureaucrat limo("Limo", 75);
 		std::cout << C_G << limo << " before." << C_RST <<std::endl;
 		for (int i = 0; i < 6; i++)
 			limo.decrementGrade();
@@ -67,9 +67,9 @@ void test4() {
 	catch (const std::exception& e) {
 		std::cout << C_R << e.what() << C_RST << std::endl;
 	}
-	Bureaucrat llimo;
-	llimo = limo;
 	try {
+		Bureaucrat llimo;
+		llimo = limo;
 		std::cout << C_G << llimo << " before." << C_RST <<std::endl;
 		for (int i = 0; i < 69; i++)
 			llimo.decrementGrade();
@@ -83,8 +83,8 @@ void test4() {
 void test5() {
 	std::cout << C_W << "\nINCREMENT ERROR TEST" << std::endl;
 	std::cout << "===============================" << C_RST << std::endl;
-	Bureaucrat pimo("Pimo", 5);
 	try {
+		Bureaucrat pimo("Pimo", 5);
 		std::cout << C_G << pimo << " before." << C_RST <<std::endl;
 		for (int i = 0; i < 8; i++)
 			pimo.incrementGrade();
@@ -99,8 +99,8 @@ void test5() {
 void test6() {
 	std::cout << C_W << "\nDECREMENT ERROR TEST" << std::endl;
 	std::cout << "===============================" << C_RST << std::endl;
-	Bureaucrat mimo("Mimo", 147);
 	try {
+		Bureaucrat mimo("Mimo", 147);
 		std::cout << C_G << mimo << " before." << C_RST <<std::endl;
 		for (int i = 0; i < 6; i++)
 			mimo.decrementGrade();
