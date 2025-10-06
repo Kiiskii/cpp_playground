@@ -46,19 +46,19 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 }
 
 void Bureaucrat::incrementGrade() {
-	_grade--;
-	if (_grade < 1) {
+	if (_grade - 1 < 1) {
 		std::cout << "Bureaucrat " << _name << ": ";
 		throw GradeTooHighException();
 	}
+	_grade--;
 }
 
 void Bureaucrat::decrementGrade() {
-	_grade++;
-	if (_grade > 150) {
+	if (_grade + 1 > 150) {
 		std::cout << "Bureaucrat " << _name << ": ";
 		throw GradeTooLowException();
 	}
+	_grade++;
 }
 
 void Bureaucrat::signForm(Form& f) {
