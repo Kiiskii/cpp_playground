@@ -1,4 +1,4 @@
-TEMPLATE::TEMPLATE() {}
+#include "TEMPLATE.hpp"
 
 TEMPLATE::TEMPLATE() {}
 
