@@ -13,7 +13,7 @@ public:
 	ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
 	~ShrubberyCreationForm();
 
-	void execute(Bureaucrat& exec) const override;
+	void execute(const Bureaucrat& exec) const override;
 
 	class FileCreationError : public std::exception {
 	public:

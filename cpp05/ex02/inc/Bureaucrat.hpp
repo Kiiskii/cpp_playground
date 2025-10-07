@@ -8,8 +8,9 @@
 #define C_G		"\033[0;32m\001"
 #define C_W		"\033[0;37m\001"
 #define C_C		"\033[0;36m\001"
+# define C_Y	"\033[0;33m\001"
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 private:
@@ -27,6 +28,7 @@ public:
 	void incrementGrade();
 	void decrementGrade();
 	void signForm(AForm& f);
+	void executeForm(const AForm& f);
 
 	class GradeTooHighException : public std::exception {
 	public:

@@ -5,8 +5,9 @@ OBJS_DIR = obj
 HDRS_DIR = inc/
 HDRS = -I$(HDRS_DIR)
 
-NAME = Form
-SRCS = srcs/main.cpp srcs/Bureaucrat.cpp srcs/Form.cpp
+NAME = AForm
+SRCS = srcs/main.cpp srcs/Bureaucrat.cpp srcs/AForm.cpp srcs/ShrubberyCreationForm.cpp \
+	   srcs/PresidentialPardonForm.cpp srcs/RobotomyRequestForm.cpp
 OBJS = $(patsubst srcs/%.cpp, $(OBJS_DIR)/%.o, $(SRCS))
 
 GREEN = \033[32m
@@ -30,6 +31,7 @@ clean:
 fclean: clean
 	@echo "$(GREEN)Removing executable$(RESET)"
 	rm -f $(NAME)
+	rm -f *_shrubbery
 
 re: fclean all
 

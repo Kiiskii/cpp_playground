@@ -18,6 +18,12 @@ AForm::AForm(const AForm& other) :
 	_gradeToSign(other.getSignGrade()), _gradeToExec(other.getExecGrade()) {
 }
 
+AForm& AForm::operator=(const AForm& other) {
+	if (this != &other)
+		_signed = other.getSigned();
+	return *this;
+}
+
 AForm::~AForm() {}
 
 const std::string& AForm::getName() const {
@@ -56,7 +62,7 @@ const char* AForm::AlreadySignedException::what() const throw() {
 	return "form is already signed.";
 }
 
-const char* AForm::ForNotSignedException::what() const throw() {
+const char* AForm::FormNotSignedException::what() const throw() {
 	return "form is not signed.";
 }
 

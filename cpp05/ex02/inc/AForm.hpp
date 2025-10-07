@@ -15,7 +15,7 @@ public:
 	AForm() = delete;
 	AForm(const std::string& name, int gradeToSign, int gradeToExec);
 	AForm(const AForm& other);
-	AForm& operator=(const AForm& other) = delete;
+	AForm& operator=(const AForm& other);
 	virtual ~AForm();
 
 	const std::string& getName() const;
@@ -40,7 +40,7 @@ public:
 		const char* what() const throw();
 	};
 
-	class ForNotSignedException : public std::exception {
+	class FormNotSignedException : public std::exception {
 	public:
 		const char* what() const throw();
 	};

@@ -25,20 +25,20 @@ const char* ShrubberyCreationForm::FileCreationError::what() const throw() {
 	return "Error: Could not open file for writing.";
 }
 
-void ShrubberyCreationForm::execute(Bureaucrat& exec) const {
+void ShrubberyCreationForm::execute(const Bureaucrat& exec) const {
 	if (!getSigned())
 		throw FormNotSignedException();
-	if (exec.getExecGrade() > getExecGrade())
+	if (exec.getGrade() > getExecGrade())
 		throw GradeTooLowException();
 
 	std::ofstream outfile(_target + "_shrubbery");
-	if (!outfile.isopen())
+	if (!outfile.is_open())
 		throw FileCreationError();
 	outfile
-	<<			"/\\\n"
-	<<		   "/||\\\n"
+	<< "		 /\\\n"
+	<< "		/||\\\n"
 	<< std::endl;
 
 	outfile.close();
-	std::cout << "Shrubbery created into " << _target + "_shrubbery" << std::endl;
+	std::cout << C_C << "Shrubbery created into " << _target + "_shrubbery" << C_RST << std::endl;
 }

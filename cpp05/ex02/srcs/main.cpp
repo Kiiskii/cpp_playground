@@ -1,15 +1,34 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include <cstdlib>
+#include <ctime>
 
 void test1() {
-	std::cout << C_W << "\nBASIC TESTS" << std::endl;
+	std::cout << C_W << "\nBASIC SHRUBBERY FORM TESTS" << std::endl;
 	std::cout << "===============================" << C_RST << std::endl;
 	try {
-		Bureaucrat timo("Timo", 72);
-		Form a("A21212", 110, 90);
-		std::cout << timo << std::endl;
-		timo.signForm(a);
-		std::cout << a << std::endl;
+		Bureaucrat pres("President", 1);
+		std::cout << pres << std::endl;
+
+		ShrubberyCreationForm s("tree");
+		pres.signForm(s);
+		pres.executeForm(s);
+		std::cout << s << std::endl;
+	}
+	catch (const std::exception& e) {
+		std::cout << C_R << e.what() << C_RST << std::endl;
+	}
+	try {
+		Bureaucrat mana("Manager", 139);
+		std::cout << mana << std::endl;
+
+		ShrubberyCreationForm ss("trees");
+		mana.signForm(ss);
+		mana.executeForm(ss);
+		std::cout << ss << std::endl;
 	}
 	catch (const std::exception& e) {
 		std::cout << C_R << e.what() << C_RST << std::endl;
@@ -17,19 +36,28 @@ void test1() {
 }
 
 void test2() {
-	std::cout << C_W << "\nINCREMENT UNTIL SUCCESS TESTS" << std::endl;
+	std::cout << C_W << "\nBASIC PRESIDENTIAL PARDON FORM TESTS" << std::endl;
 	std::cout << "===============================" << C_RST << std::endl;
 	try {
-		Bureaucrat simo("Simo", 90);
-		Form b("B232323", 85, 50);
-		std::cout << simo << std::endl;
-		simo.signForm(b);
-		std::cout << b << std::endl;
-		for (int i = 0; i < 6; i++) {
-			simo.incrementGrade();
-			simo.signForm(b);
-		}
-		std::cout << b << std::endl;
+		Bureaucrat pres("President", 1);
+		std::cout << pres << std::endl;
+
+		PresidentialPardonForm s("You");
+		pres.signForm(s);
+		pres.executeForm(s);
+		std::cout << s << std::endl;
+	}
+	catch (const std::exception& e) {
+		std::cout << C_R << e.what() << C_RST << std::endl;
+	}
+	try {
+		Bureaucrat mana("Manager", 21);
+		std::cout << mana << std::endl;
+
+		PresidentialPardonForm ss("trees");
+		mana.signForm(ss);
+		mana.executeForm(ss);
+		std::cout << ss << std::endl;
 	}
 	catch (const std::exception& e) {
 		std::cout << C_R << e.what() << C_RST << std::endl;
@@ -37,50 +65,28 @@ void test2() {
 }
 
 void test3() {
-	std::cout << C_W << "\nFORM LIMIT TESTS" << std::endl;
+	std::cout << C_W << "\nBASIC ROBOTOMY REQUEST FORM TESTS" << std::endl;
 	std::cout << "===============================" << C_RST << std::endl;
 	try {
-		Form c("C4545454", -1, 40);
-	}
-	catch (const std::exception& e) {
-		std::cout << C_R << e.what() << C_RST << std::endl;
-	}
-	try {
-		Form d("D4545454", 151, 40);
-	}
-	catch (const std::exception& e) {
-		std::cout << C_R << e.what() << C_RST << std::endl;
-	}
-}
+		Bureaucrat pres("President", 1);
+		std::cout << pres << std::endl;
 
-void test4() {
-	std::cout << C_W << "\nCOPY CONSTRUCTOR TESTS" << std::endl;
-	std::cout << "===============================" << C_RST << std::endl;
-	try {
-		Form e("E123123", 30, 21);
-		std::cout << e << std::endl;
-		Form f(e);
-		std::cout << f << std::endl;
+		RobotomyRequestForm s("Pete");
+		pres.signForm(s);
+		pres.executeForm(s);
+		std::cout << s << std::endl;
 	}
 	catch (const std::exception& e) {
 		std::cout << C_R << e.what() << C_RST << std::endl;
 	}
-}
-
-void test5() {
-	std::cout << C_W << "\nDECREMENT UNTIL CAN'T SIGN TESTS" << std::endl;
-	std::cout << "===============================" << C_RST << std::endl;
 	try {
-		Bureaucrat bimo("Bimo", 84);
-		Form g("G232323", 85, 50);
-		std::cout << bimo << std::endl;
-		bimo.signForm(g);
-		std::cout << g << std::endl;
-		for (int i = 0; i < 3; i++) {
-			bimo.decrementGrade();
-			bimo.signForm(g);
-		}
-		std::cout << g << std::endl;
+		Bureaucrat mana("Manager", 69);
+		std::cout << mana << std::endl;
+
+		RobotomyRequestForm ss("Luke");
+		mana.signForm(ss);
+		mana.executeForm(ss);
+		std::cout << ss << std::endl;
 	}
 	catch (const std::exception& e) {
 		std::cout << C_R << e.what() << C_RST << std::endl;
@@ -88,11 +94,10 @@ void test5() {
 }
 
 int main() {
+	srand(time(nullptr));
 	test1();
 	test2();
 	test3();
-	test4();
-	test5();
 
 	std::cout << C_W << "\n===============================" << std::endl;
 	std::cout << "END TESTS" << C_RST << std::endl;
