@@ -12,6 +12,8 @@ enum e_type {
 	INT,
 	FLOAT,
 	DOUBLE,
+	PSEUDOFLOAT,
+	PSEUDODOUBLE,
 	INVALID
 };
 
