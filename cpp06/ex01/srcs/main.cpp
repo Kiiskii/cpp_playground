@@ -59,7 +59,7 @@ static void test4() {
 }
 
 static void test5() {
-	Data* p = 0;
+	Data* p = nullptr;
 	uintptr_t raw = Serializer::serialize(p);
 	Data* back = Serializer::deserialize(raw);
 
