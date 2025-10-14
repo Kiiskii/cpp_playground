@@ -194,15 +194,15 @@ void convertToDouble(const std::string& num, int prec) {
 
 void handlePseudos(const std::string& num) {
 	if (num == "-inf" || num == "-inff") {
-		std::cout << C_G << "float: -inff" << std::endl;
+		std::cout << C_G << "float: -inff" << C_RST << std::endl;
 		std::cout << C_G << "double: -inf" << C_RST << std::endl;
 	}
 	else if (num == "+inf" || num == "+inff") {
-		std::cout << C_G << "float: +inff" << std::endl;
+		std::cout << C_G << "float: +inff" << C_RST << std::endl;
 		std::cout << C_G << "double: +inf" << C_RST << std::endl;
 	}
 	else if (num == "nan" || num == "nanf") {
-		std::cout << C_G << "float: nanf" << std::endl;
+		std::cout << C_G << "float: nanf" << C_RST <<std::endl;
 		std::cout << C_G << "double: nan" << C_RST << std::endl;
 	}
 	else
