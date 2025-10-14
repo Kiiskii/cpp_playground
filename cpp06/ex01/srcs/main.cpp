@@ -63,7 +63,7 @@ static void test5() {
 	uintptr_t raw = Serializer::serialize(p);
 	Data* back = Serializer::deserialize(raw);
 
-	MYASSERT(back == 0, 5);
+	MYASSERT(back == nullptr, 5);
 	// MYASSERT(back != 0, 5); // this test will show that MYASSERT will print a different msg on a failed test
 }
 
