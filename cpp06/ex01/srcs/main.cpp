@@ -67,7 +67,7 @@ static bool test4() {
 	uintptr_t ra = Serializer::serialize(&a);
 	uintptr_t rb = Serializer::serialize(&b);
 
-	testPassed &= MYASSERT(ra == rb, 4.1);
+	testPassed &= MYASSERT(ra != rb, 4.1);
 	testPassed &= MYASSERT(Serializer::deserialize(ra) == &a, 4.2);
 	testPassed &= MYASSERT(Serializer::deserialize(rb) == &b, 4.3);
 
