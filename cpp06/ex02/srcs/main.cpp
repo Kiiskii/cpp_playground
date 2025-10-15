@@ -13,12 +13,10 @@
 Base* generate() {
 	switch (std::rand() % 3) {
 		case 0: 
-			std::cout << "creating A" << std::endl;
 			return new A();
-		case 1: return new B();
-			std::cout << "creating B" << std::endl;
+		case 1: 
+			return new B();
 		default: 
-			std::cout << "creating C" << std::endl;
 			return new C();
 	}
 }
