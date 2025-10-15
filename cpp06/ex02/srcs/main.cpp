@@ -71,8 +71,8 @@ int main() {
 		identify(b);
 
 		if (b) {
-		std::cout << C_G << "reference is: ";
-		identify(*b);
+			std::cout << C_G << "reference is: ";
+			identify(*b);
 		}
 
 		if (dynamic_cast<A*>(b))
