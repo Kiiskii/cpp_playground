@@ -60,7 +60,7 @@ void identify(Base& p) {
 }
 
 int main() {
-	std::srand(time(0));
+	std::srand(std::time(0));
 
 	int countA = 0, countB = 0, countC = 0;
 
