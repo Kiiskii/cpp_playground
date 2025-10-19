@@ -50,7 +50,7 @@ void test2() {
 void test3() {
 	char array[] = {'a' ,'b', 'c', 'd' ,'e', ' ', '!'};
 	std::cout << "Array before: ";
-	::iter(array, 7, toUpCase);
+	::iter(array, 7, print<char>);
 	std::cout << "\n";
 	std::cout << "Array after: ";
 	::iter(array, 7, toUpCase);
