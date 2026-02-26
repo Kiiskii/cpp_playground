@@ -5,7 +5,7 @@
 
 class Span {
 private:
-	unsigned int _size;
+	unsigned int _capacity;
 	std::vector<int> _arr;
 public:
 	Span() = delete;
@@ -21,8 +21,8 @@ public:
 	template<typename Input>
 	void addNumber(Input begin, Input end) {
 		auto dist = std::distance(begin, end);
-		if (_arr.size() + dist > _size)
+		if (dist < 0 || _arr.size() + static_cast<unsigned int>(dist) > _capacity)
 			throw std::overflow_error("Array full");
 		_arr.insert(_arr.end(), begin, end);
-	};
+	}
 };

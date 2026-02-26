@@ -1,22 +1,20 @@
 #include "../inc/Span.hpp"
 #include <algorithm>
 #include <numeric>
-#include <stdexcept>
-#include <vector>
 
 Span::Span(unsigned int N) {
-	_size = N;
-	_arr.reserve(_size);
+	_capacity = N;
+	_arr.reserve(_capacity);
 }
 
 Span::Span(const Span& other) {
-	_size = other._size;
+	_capacity = other._capacity;
 	_arr = other._arr;
 }
 
 Span& Span::operator=(const Span& other) {
 	if (this != &other) {
-		_size = other._size;
+		_capacity = other._capacity;
 		_arr = other._arr;
 	}
 	return *this;
@@ -25,8 +23,8 @@ Span& Span::operator=(const Span& other) {
 Span::~Span() {}
 
 void Span::addNumber(int nb) {
-	if (_arr.size() >= _size)
-		throw std::runtime_error("Array maximum size reached");
+	if (_arr.size() >= _capacity)
+		throw std::runtime_error("Array full");
 	_arr.push_back(nb);
 }
 
@@ -47,6 +45,6 @@ int Span::shortestSpan() const {
 	std::sort(sortedArr.begin(), sortedArr.end());
 	std::vector<int> dif(sortedArr.size());
 	std::adjacent_difference(sortedArr.begin(), sortedArr.end(), dif.begin());
-	std::vector<int>::iterator it = std::min_element(dif.begin() + 1, dif.end());
+	auto it = std::min_element(dif.begin() + 1, dif.end());
 	return *it;
 }

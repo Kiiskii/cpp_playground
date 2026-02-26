@@ -3,6 +3,7 @@
 #include <vector>
 #include <list>
 #include <cstdlib>
+#include <ctime>
 #include <exception>
 
 #define C_R		"\033[0;31m\001"
