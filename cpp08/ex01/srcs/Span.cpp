@@ -1,6 +1,7 @@
 #include "../inc/Span.hpp"
 #include <algorithm>
 #include <numeric>
+#include <stdexcept>
 
 Span::Span(unsigned int N) {
 	_capacity = N;
@@ -24,7 +25,7 @@ Span::~Span() {}
 
 void Span::addNumber(int nb) {
 	if (_arr.size() >= _capacity)
-		throw std::runtime_error("Array full");
+		throw std::overflow_error("Array full");
 	_arr.push_back(nb);
 }
 
