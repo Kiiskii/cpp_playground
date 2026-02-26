@@ -92,7 +92,7 @@ void test3() {
 	std::cout << std::endl;
 
 	std::cout << "reverse:  ";
-	for (MutantStack<int>::rev_iterator it = mstack.rbegin(); it != mstack.rend(); ++it)
+	for (MutantStack<int>::reverse_iterator it = mstack.rbegin(); it != mstack.rend(); ++it)
 		std::cout << *it << " ";
 	std::cout << std::endl;
 }
@@ -115,7 +115,7 @@ void test4() {
 	std::cout << std::endl;
 
 	std::cout << "const reverse:  ";
-	for (MutantStack<int>::const_rev_iterator it = cstack.rbegin(); it != cstack.rend(); ++it)
+	for (MutantStack<int>::const_reverse_iterator it = cstack.rbegin(); it != cstack.rend(); ++it)
 		std::cout << *it << " ";
 	std::cout << std::endl;
 }

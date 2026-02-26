@@ -19,21 +19,21 @@ typename MutantStack<T>::const_iterator MutantStack<T>::end() const {
 }
 
 template <typename T>
-typename MutantStack<T>::rev_iterator MutantStack<T>::rbegin() {
+typename MutantStack<T>::reverse_iterator MutantStack<T>::rbegin() {
 	return (this->c.rbegin());
 }
 
 template <typename T>
-typename MutantStack<T>::rev_iterator MutantStack<T>::rend() {
+typename MutantStack<T>::reverse_iterator MutantStack<T>::rend() {
 	return (this->c.rend());
 }
 
 template <typename T>
-typename MutantStack<T>::const_rev_iterator MutantStack<T>::rbegin() const {
+typename MutantStack<T>::const_reverse_iterator MutantStack<T>::rbegin() const {
 	return (this->c.rbegin());
 }
 
 template <typename T>
-typename MutantStack<T>::const_rev_iterator MutantStack<T>::rend() const {
+typename MutantStack<T>::const_reverse_iterator MutantStack<T>::rend() const {
 	return (this->c.rend());
 }
