@@ -48,7 +48,7 @@ bool BitcoinExchange::validateDate(std::string& date) {
 	ss >> std::get_time(&tm, "%Y-%m-%d");
 
 	if (ss.fail() || !ss.eof()) {
-		std::cerr << C_R << "bad date format(" << date << ")" << C_RST << std::endl;
+		std::cerr << C_R << "bad date format (" << date << ")" << C_RST << std::endl;
 		return false;
 	}
 
@@ -67,8 +67,8 @@ bool BitcoinExchange::validateValue(std::string& valueStr) {
 	float value;
 	try {
 		value = std::stof(valueStr);
-	} catch (const std::exception&) {
-		std::cerr << C_R << "invalid value (" << value << ")" << C_RST << std::endl;
+	} catch (const std::exception& e) {
+		std::cerr << C_R << "error: " << e.what() << C_RST << std::endl;
 		return false;
 	}
 	if (value < 0 || value > 1000) {
