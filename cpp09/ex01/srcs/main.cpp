@@ -1,8 +1,9 @@
 #include "../inc/RPN.hpp"
+#include <iostream>
 
 int main(int ac, char** av) {
 	if (ac != 2) {
-		std::cerr << "usage: ./RPN <reverse polish notation" << std::endl;
+		std::cerr << "usage: ./RPN <reverse polish notation>" << std::endl;
 		return 1;
 	}
 	try {

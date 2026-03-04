@@ -3,6 +3,7 @@
 #include <climits>
 #include <sstream>
 #include <stdexcept>
+#include <iostream>
 
 void RPN::applyOperator(char op) {
 	if (_stack.size() < 2)
@@ -28,6 +29,8 @@ void RPN::applyOperator(char op) {
 			throw std::runtime_error("cannot divide by 0");
 		res = static_cast<long>(left) / static_cast<long>(right);
 		break ;
+	default:
+		throw std::runtime_error("invalid token");
 	}
 	if (res > INT_MAX || res < INT_MIN)
 		throw std::runtime_error("integer overflow or underflow");

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <stack>
-#include <iostream>
+#include <string>
 
 #define C_R		"\033[0;31m\001"
 #define C_G		"\033[0;32m\001"
