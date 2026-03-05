@@ -65,14 +65,15 @@ bool BitcoinExchange::validateDate(std::string& date) {
 
 bool BitcoinExchange::validateValue(std::string& valueStr) {
 	float value;
+	size_t pos;
 	try {
-		value = std::stof(valueStr);
+		value = std::stof(valueStr, &pos);
 	} catch (const std::exception& e) {
 		std::cerr << C_R << "error: " << e.what() << C_RST << std::endl;
 		return false;
 	}
-	if (value < 0 || value > 1000) {
-		std::cerr << C_R << "invalid value (" << value << ")" << C_RST << std::endl;
+	if (pos != valueStr.length() || value < 0 || value > 1000) {
+		std::cerr << C_R << "invalid value (" << valueStr << ")" << C_RST << std::endl;
 		return false;
 	}
 	return true;
