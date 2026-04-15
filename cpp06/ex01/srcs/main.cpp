@@ -9,7 +9,7 @@
 					<< std::endl;										\
 		return false;													\
 	} else {															\
-		std::cout << C_G << "test " << num << " [OK]" << std::endl;		\
+		std::cout << C_G << "test " << num << " [OK]" << C_RST << std::endl;		\
 		return true;													\
 	}																	\
 } ())
@@ -23,6 +23,9 @@ static bool test1() {
 	uintptr_t raw = Serializer::serialize(original);
 	Data* back = Serializer::deserialize(raw);
 
+	std::cout << "  original:     " << original << std::endl;
+	std::cout << "  serialized:   " << raw << std::endl;
+	std::cout << "  deserialized: " << back << std::endl;
 	testPassed = MYASSERT(back == original, 1);
 	return testPassed;
 }
@@ -34,6 +37,10 @@ static bool test2() {
 	uintptr_t raw = Serializer::serialize(&d);
 	Data* p = Serializer::deserialize(raw);
 
+	std::cout << "  original:     " << &d << std::endl;
+	std::cout << "  serialized:   " << raw << std::endl;
+	std::cout << "  deserialized: " << p << std::endl;
+	std::cout << "  name: " << p->name << ", value: " << p->value << std::endl;
 	testPassed &= MYASSERT(p->name == "bravo", 2.1);
 	testPassed &= MYASSERT(p->value == 7, 2.2);
 
@@ -52,6 +59,11 @@ static bool test3() {
 	alias->name  = "delta";
 	alias->value = 42;
 
+	std::cout << "  original:     " << original << std::endl;
+	std::cout << "  serialized:   " << raw << std::endl;
+	std::cout << "  deserialized: " << alias << std::endl;
+	std::cout << "  modified via alias -> original name: " << original->name
+			  << ", value: " << original->value << std::endl;
 	testPassed &= MYASSERT(original->name == "delta", 3.1);
 	testPassed &= MYASSERT(original->value == 42, 3.2);
 
@@ -67,6 +79,12 @@ static bool test4() {
 	uintptr_t ra = Serializer::serialize(&a);
 	uintptr_t rb = Serializer::serialize(&b);
 
+	std::cout << "  a original:     " << &a << std::endl;
+	std::cout << "  a serialized:   " << ra << std::endl;
+	std::cout << "  a deserialized: " << Serializer::deserialize(ra) << std::endl;
+	std::cout << "  b original:     " << &b << std::endl;
+	std::cout << "  b serialized:   " << rb << std::endl;
+	std::cout << "  b deserialized: " << Serializer::deserialize(rb) << std::endl;
 	testPassed &= MYASSERT(ra != rb, 4.1);
 	testPassed &= MYASSERT(Serializer::deserialize(ra) == &a, 4.2);
 	testPassed &= MYASSERT(Serializer::deserialize(rb) == &b, 4.3);
@@ -81,6 +99,9 @@ static bool test5() {
 	uintptr_t raw = Serializer::serialize(p);
 	Data* back = Serializer::deserialize(raw);
 
+	std::cout << "  original:     " << p << std::endl;
+	std::cout << "  serialized:   " << raw << std::endl;
+	std::cout << "  deserialized: " << back << std::endl;
 	testPassed = MYASSERT(back == nullptr, 5);
 
 	return testPassed;
@@ -93,6 +114,9 @@ static bool test6() {
 	uintptr_t raw = Serializer::serialize(&p);
 	Data* back = Serializer::deserialize(raw);
 
+	std::cout << "  original:     " << &p << std::endl;
+	std::cout << "  serialized:   " << raw << std::endl;
+	std::cout << "  deserialized: " << back << std::endl;
 	testPassed = MYASSERT(back == &p, 6);
 
 	return testPassed;
