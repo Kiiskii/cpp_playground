@@ -31,7 +31,7 @@ int main(int ac, char** av) {
 		std::cout << "Time to process range of " << ac - 1
 			<< " elements with std::deque:  " << elapsedDeq
 			<< " us" << std::endl;
-	} catch (std::exception& e) {
+	} catch (const std::exception& e) {
 		std::cerr << C_R << e.what() << C_RST << std::endl;
 		return 1;
 	}

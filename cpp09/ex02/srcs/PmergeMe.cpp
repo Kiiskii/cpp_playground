@@ -9,7 +9,6 @@
 void PmergeMe::parseInput(int ac, char** av ) {
 	if (ac < 2) {
 		throw std::runtime_error("usage: PmergeMe <values>");
-		return ;
 	}
 	for (int i = 1; i < ac; ++i) {
 		size_t pos;
@@ -75,20 +74,20 @@ std::vector<int> PmergeMe::fordJohnVec(std::vector<int> vec) {
 	return finalVec;
 }
 
-std::vector<int> PmergeMe::getJacobsthalOrder(int n) {
+std::vector<int> PmergeMe::getJacobsthalOrder(size_t n) {
 	std::vector<int> order;
 	if (n == 0)
 		return order;
 	order.push_back(0);
 
-	std::vector<int> jacob = {0, 1};
+	std::vector<size_t> jacob = {0, 1};
 	while (jacob.back() < n)
 		jacob.push_back(jacob[jacob.size() - 1] + 2 * jacob[jacob.size() - 2]);
 
-	int prev = 1;
+	size_t prev = 1;
 	for (size_t i = 2; i < jacob.size(); i++) {
-		int curr = std::min(jacob[i], n);
-		for (int j = curr; j > prev; j--)
+		size_t curr = std::min(jacob[i], n);
+		for (size_t j = curr; j > prev; j--)
 			order.push_back(j - 1);
 		prev = curr;
 	}
