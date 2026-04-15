@@ -7,6 +7,18 @@ FAIL=0
 green() { printf "\033[0;32m%s\033[0m\n" "$1"; }
 red() { printf "\033[0;31m%s\033[0m\n" "$1"; }
 
+# Generate N random numbers between LO and HI (portable across macOS and Linux)
+rand_nums() {
+	local n="$1" lo="$2" hi="$3"
+	if command -v shuf >/dev/null 2>&1; then
+		shuf -i "$lo"-"$hi" -n "$n" -r
+	elif command -v jot >/dev/null 2>&1; then
+		jot -r "$n" "$lo" "$hi"
+	else
+		python3 -c "import random; print('\n'.join(str(random.randint($lo,$hi)) for _ in range($n)))"
+	fi
+}
+
 # Test that expects success and correct sorting
 test_valid() {
 	local verbose="$1"
@@ -80,10 +92,10 @@ test_valid 1 "two duplicates" 80 80
 
 echo ""
 echo "=== Larger inputs ==="
-test_valid 0 "20 random elements" $(jot -r 20 1 100 | tr '\n' ' ')
-test_valid 0 "100 random elements" $(jot -r 100 1 1000 | tr '\n' ' ')
-test_valid 0 "500 random elements" $(jot -r 500 1 10000 | tr '\n' ' ')
-test_valid 0 "3000 random elements" $(jot -r 3000 1 100000 | tr '\n' ' ')
+test_valid 0 "20 random elements" $(rand_nums 20 1 100 | tr '\n' ' ')
+test_valid 0 "100 random elements" $(rand_nums 100 1 1000 | tr '\n' ' ')
+test_valid 0 "500 random elements" $(rand_nums 500 1 10000 | tr '\n' ' ')
+test_valid 0 "3000 random elements" $(rand_nums 3000 1 100000 | tr '\n' ' ')
 
 echo ""
 echo "=== Error cases ==="
@@ -98,6 +110,8 @@ echo "=== Results ==="
 green "Passed: $PASS"
 if [ $FAIL -gt 0 ]; then
 	red "Failed: $FAIL"
+	exit 1
 else
 	echo "Failed: $FAIL"
+	exit 0
 fi
