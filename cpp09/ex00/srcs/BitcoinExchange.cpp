@@ -7,6 +7,7 @@
 #include <sstream>
 #include <stdexcept>
 #include <string>
+#include <cmath>
 
 BitcoinExchange::BitcoinExchange() {
 	databaseToMap();
@@ -72,7 +73,7 @@ bool BitcoinExchange::validateValue(std::string& valueStr) {
 		std::cerr << C_R << "error: " << e.what() << C_RST << std::endl;
 		return false;
 	}
-	if (pos != valueStr.length() || value < 0 || value > 1000) {
+	if (pos != valueStr.length() || !std::isfinite(value) || value < 0 || value > 1000) {
 		std::cerr << C_R << "invalid value (" << valueStr << ")" << C_RST << std::endl;
 		return false;
 	}
