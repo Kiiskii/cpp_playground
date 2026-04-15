@@ -23,7 +23,7 @@ public:
 	void sortVector();
 	std::vector<int> fordJohnVec(std::vector<int> vec);
 	std::deque<int> fordJohnDeq(std::deque<int> deq);
-	std::vector<int> getJacobsthalOrder(int n);
+	std::vector<int> getJacobsthalOrder(size_t n);
 	void sortDeque();
 	void printDeque();
 };
